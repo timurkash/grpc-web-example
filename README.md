@@ -14,7 +14,7 @@ This repository demonstrates the usage of grpc-web with vuejs and a Go microserv
 * `make run-servers` - Start Time services and Envoy proxy
 
 #### Forked from:
-github.com/kostyay/grpc-web-example
+[github.com/kostyay/grpc-web-example](github.com/kostyay/grpc-web-example)
 
 Envoy adjusted to v1.21.1
 And some improves
