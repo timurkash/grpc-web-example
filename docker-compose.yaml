@@ -10,6 +10,8 @@ services:
       - "8080:8080"
     links:
       - time-server
+    networks:
+      - backend
 
   time-server:
     build:
@@ -18,3 +20,8 @@ services:
     image: kostyay/grpc-web-example-time
     ports:
       - "9090:9090"
+    networks:
+      - backend
+
+networks:
+  backend:
