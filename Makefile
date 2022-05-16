@@ -36,3 +36,14 @@ curl:
 	@echo "--> curl HTTP/1.1 http://localhost:8080/time.v1.TimeService/GetCurrentTime"
 	@bash ./1.sh > 1
 	@cat 1 | base64 --decode
+
+build-image:
+	docker build -t timurkash/grpc-web-example-time ./time
+
+docker-compose-up:
+	make build-image
+	docker-compose up -d
+
+docker-compose-stop:
+	docker-compose stop
+	docker-compose rm -f

@@ -1,3 +1,28 @@
+<script>
+import { TimeServiceClient } from '@/jsclient/time/v1/time_service_grpc_web_pb';
+import { GetCurrentTimeRequest } from '../jsclient/time/v1/time_service_pb';
+
+export default {
+  name: 'Time',
+  data: function() {
+    return { lastTimeResponse: 'n/a' }
+  },
+  methods: {
+    getTime: function () {
+      const client = new TimeServiceClient("http://localhost:8079", null, null);
+      const enableDevTools = window.__GRPCWEB_DEVTOOLS__ || (() => {});
+      enableDevTools([
+        client,
+      ]);
+
+      client.getCurrentTime(new GetCurrentTimeRequest(), {}, (err, response) => {
+        this.lastTimeResponse = response.getCurrentTime();
+      });
+    }
+  }
+}
+</script>
+
 <template>
   <div class="hello">
     <h1>gRPC-Web Example</h1>
@@ -12,31 +37,6 @@
     </div>
   </div>
 </template>
-
-<script>
-import { TimeServiceClient } from '../jsclient/time/v1/time_service_grpc_web_pb';
-import { GetCurrentTimeRequest } from '../jsclient/time/v1/time_service_pb';
-
-export default {
-  name: 'Time',
-  data: function() {
-    return { lastTimeResponse: 'n/a' }
-  },
-  methods: {
-    getTime: function () {
-      const client = new TimeServiceClient("http://localhost:8080", null, null);
-      const enableDevTools = window.__GRPCWEB_DEVTOOLS__ || (() => {});
-      enableDevTools([
-        client,
-      ]);
-
-      client.getCurrentTime(new GetCurrentTimeRequest(), {}, (err, response) => {
-        this.lastTimeResponse = response.getCurrentTime();
-      });
-    }
-  }
-}
-</script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
