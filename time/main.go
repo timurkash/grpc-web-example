@@ -18,7 +18,9 @@ type timeService struct {
 
 func (t *timeService) GetCurrentTime(_ context.Context, _ *pb.GetCurrentTimeRequest) (*pb.GetCurrentTimeResponse, error) {
 	log.Println("Got time request")
-	return &pb.GetCurrentTimeResponse{CurrentTime: time.Now().String()}, nil
+	return &pb.GetCurrentTimeResponse{
+		CurrentTime: time.Now().String() + time.Now().String(),
+	}, nil
 }
 
 func main() {

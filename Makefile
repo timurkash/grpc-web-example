@@ -33,6 +33,6 @@ run-servers:
 	@docker-compose up -d
 
 curl:
-	@echo "--> curl HTTP/1.1 http://localhost:8080/smpl.time.api.v1.TimeService/GetCurrentTime"
+	@echo "--> curl HTTP/1.1 http://localhost:8080/time.v1.TimeService/GetCurrentTime"
 	@bash ./1.sh > 1
 	@cat 1 | base64 --decode
