@@ -5,9 +5,9 @@ services:
     build:
       context: ./envoy
       dockerfile: Dockerfile
-    image: kostyay/grpc-web-example-envoy
+    image: timurkash/grpc-web-example-envoy
     ports:
-      - "8080:8080"
+      - "8079:8080"
     links:
       - time-server
     networks:
@@ -17,7 +17,7 @@ services:
     build:
       context: ./time
       dockerfile: Dockerfile
-    image: kostyay/grpc-web-example-time
+    image: timurkash/grpc-web-example-time
     ports:
       - "9090:9090"
     networks:

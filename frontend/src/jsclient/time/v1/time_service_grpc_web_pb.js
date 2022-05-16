@@ -1,5 +1,5 @@
 /**
- * @fileoverview gRPC-Web generated client stub for smpl.time.api.v1
+ * @fileoverview gRPC-Web generated client stub for time.v1
  * @enhanceable
  * @public
  */
@@ -16,10 +16,8 @@ const grpc = {};
 grpc.web = require('grpc-web');
 
 const proto = {};
-proto.smpl = {};
-proto.smpl.time = {};
-proto.smpl.time.api = {};
-proto.smpl.time.api.v1 = require('./time_service_pb.js');
+proto.time = {};
+proto.time.v1 = require('./time_service_pb.js');
 
 /**
  * @param {string} hostname
@@ -29,7 +27,7 @@ proto.smpl.time.api.v1 = require('./time_service_pb.js');
  * @struct
  * @final
  */
-proto.smpl.time.api.v1.TimeServiceClient =
+proto.time.v1.TimeServiceClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
   options.format = 'text';
@@ -55,7 +53,7 @@ proto.smpl.time.api.v1.TimeServiceClient =
  * @struct
  * @final
  */
-proto.smpl.time.api.v1.TimeServicePromiseClient =
+proto.time.v1.TimeServicePromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
   options.format = 'text';
@@ -76,39 +74,39 @@ proto.smpl.time.api.v1.TimeServicePromiseClient =
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.smpl.time.api.v1.GetCurrentTimeRequest,
- *   !proto.smpl.time.api.v1.GetCurrentTimeResponse>}
+ *   !proto.time.v1.GetCurrentTimeRequest,
+ *   !proto.time.v1.GetCurrentTimeResponse>}
  */
 const methodDescriptor_TimeService_GetCurrentTime = new grpc.web.MethodDescriptor(
-  '/smpl.time.api.v1.TimeService/GetCurrentTime',
+  '/time.v1.TimeService/GetCurrentTime',
   grpc.web.MethodType.UNARY,
-  proto.smpl.time.api.v1.GetCurrentTimeRequest,
-  proto.smpl.time.api.v1.GetCurrentTimeResponse,
+  proto.time.v1.GetCurrentTimeRequest,
+  proto.time.v1.GetCurrentTimeResponse,
   /**
-   * @param {!proto.smpl.time.api.v1.GetCurrentTimeRequest} request
+   * @param {!proto.time.v1.GetCurrentTimeRequest} request
    * @return {!Uint8Array}
    */
   function(request) {
     return request.serializeBinary();
   },
-  proto.smpl.time.api.v1.GetCurrentTimeResponse.deserializeBinary
+  proto.time.v1.GetCurrentTimeResponse.deserializeBinary
 );
 
 
 /**
- * @param {!proto.smpl.time.api.v1.GetCurrentTimeRequest} request The
+ * @param {!proto.time.v1.GetCurrentTimeRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.smpl.time.api.v1.GetCurrentTimeResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.time.v1.GetCurrentTimeResponse)}
  *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.smpl.time.api.v1.GetCurrentTimeResponse>|undefined}
+ * @return {!grpc.web.ClientReadableStream<!proto.time.v1.GetCurrentTimeResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.smpl.time.api.v1.TimeServiceClient.prototype.getCurrentTime =
+proto.time.v1.TimeServiceClient.prototype.getCurrentTime =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/smpl.time.api.v1.TimeService/GetCurrentTime',
+      '/time.v1.TimeService/GetCurrentTime',
       request,
       metadata || {},
       methodDescriptor_TimeService_GetCurrentTime,
@@ -117,22 +115,22 @@ proto.smpl.time.api.v1.TimeServiceClient.prototype.getCurrentTime =
 
 
 /**
- * @param {!proto.smpl.time.api.v1.GetCurrentTimeRequest} request The
+ * @param {!proto.time.v1.GetCurrentTimeRequest} request The
  *     request proto
  * @param {?Object<string, string>=} metadata User defined
  *     call metadata
- * @return {!Promise<!proto.smpl.time.api.v1.GetCurrentTimeResponse>}
+ * @return {!Promise<!proto.time.v1.GetCurrentTimeResponse>}
  *     Promise that resolves to the response
  */
-proto.smpl.time.api.v1.TimeServicePromiseClient.prototype.getCurrentTime =
+proto.time.v1.TimeServicePromiseClient.prototype.getCurrentTime =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/smpl.time.api.v1.TimeService/GetCurrentTime',
+      '/time.v1.TimeService/GetCurrentTime',
       request,
       metadata || {},
       methodDescriptor_TimeService_GetCurrentTime);
 };
 
 
-module.exports = proto.smpl.time.api.v1;
+module.exports = proto.time.v1;
 

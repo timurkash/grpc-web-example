@@ -24,7 +24,7 @@ export default {
   },
   methods: {
     getTime: function () {
-      const client = new TimeServiceClient("http://localhost:8080", null, null);
+      const client = new TimeServiceClient("http://localhost:8079", null, null);
       const enableDevTools = window.__GRPCWEB_DEVTOOLS__ || (() => {});
       enableDevTools([
         client,

@@ -17,6 +17,8 @@ This repository demonstrates the usage of grpc-web with vuejs and a Go microserv
 
 [github.com/kostyay/grpc-web-example](github.com/kostyay/grpc-web-example)
 
+and revised.
+
 Envoy adjusted to v1.21.1
 
 And some improves
