@@ -41,7 +41,6 @@ build-image:
 	docker build -t timurkash/grpc-web-example-time ./time
 
 docker-compose-up:
-	make build-image
 	docker-compose up -d
 
 docker-compose-stop:

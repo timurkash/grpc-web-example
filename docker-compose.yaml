@@ -7,7 +7,7 @@ services:
       dockerfile: Dockerfile
     image: timurkash/grpc-web-example-envoy
     ports:
-      - "8079:8080"
+      - "8080:8080"
     links:
       - time-server
     networks:
@@ -20,6 +20,16 @@ services:
     image: timurkash/grpc-web-example-time
     ports:
       - "9090:9090"
+    networks:
+      - backend
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    image: timurkash/grpc-web-example-frontend
+    ports:
+      - "3000:80"
     networks:
       - backend
 
