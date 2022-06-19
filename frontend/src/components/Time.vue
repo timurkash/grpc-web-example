@@ -1,19 +1,21 @@
 <script>
 import { TimeServiceClient } from '@/jsclient/time/v1/time_service_grpc_web_pb';
-import { GetCurrentTimeRequest } from '../jsclient/time/v1/time_service_pb';
+import { GetCurrentTimeRequest } from '@/jsclient/time/v1/time_service_pb';
 
 export default {
   name: 'Time',
   data: function() {
-    return { lastTimeResponse: 'n/a' }
+    return {
+      lastTimeResponse: 'n/a',
+    }
   },
   methods: {
     getTime: function () {
       const client = new TimeServiceClient("http://localhost:8080", null, null);
-      const enableDevTools = window.__GRPCWEB_DEVTOOLS__ || (() => {});
-      enableDevTools([
-        client,
-      ]);
+      // const enableDevTools = window.__GRPCWEB_DEVTOOLS__ || (() => {});
+      // enableDevTools([
+      //   client,
+      // ]);
 
       client.getCurrentTime(new GetCurrentTimeRequest(), {}, (err, response) => {
         this.lastTimeResponse = response.getCurrentTime();
