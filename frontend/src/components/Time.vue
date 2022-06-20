@@ -1,6 +1,6 @@
 <script>
-import { TimeServiceClient } from '@/jsclient/time/v1/time_service_grpc_web_pb';
-import { GetCurrentTimeRequest } from '@/jsclient/time/v1/time_service_pb';
+import { TimeServiceClient } from '@/jsclient/time/v1/time_service_grpc_web_pb.js';
+import { GetCurrentTimeRequest } from '@/jsclient/time/v1/time_service_pb.js';
 
 export default {
   name: 'Time',
@@ -11,7 +11,8 @@ export default {
   },
   methods: {
     getTime: function () {
-      const client = new TimeServiceClient("http://localhost:8080", null, null);
+      const client = new TimeServiceClient(
+          "http://localhost:8091")
       // const enableDevTools = window.__GRPCWEB_DEVTOOLS__ || (() => {});
       // enableDevTools([
       //   client,
