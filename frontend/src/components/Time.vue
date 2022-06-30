@@ -10,7 +10,7 @@ export default {
     }
   },
   methods: {
-    getTime: function () {
+    getTime: async function () {
       const client = new TimeServiceClient(
           "http://localhost:8091")
       // const enableDevTools = window.__GRPCWEB_DEVTOOLS__ || (() => {});
@@ -18,9 +18,23 @@ export default {
       //   client,
       // ]);
 
-      client.getCurrentTime(new GetCurrentTimeRequest(), {}, (err, response) => {
+      const getCurrentTimePromise = () => {
+        return new Promise((resolve, reject) => {
+          client.getCurrentTime(new GetCurrentTimeRequest(), {}, (err, response) => {
+            if (err) return reject(err)
+            resolve(response)
+          })
+        })
+      }
+      try {
+        const response = await getCurrentTimePromise()
         this.lastTimeResponse = response.getCurrentTime();
-      });
+      }catch (err) {
+        console.error(err)
+      }
+      // client.getCurrentTime(new GetCurrentTimeRequest(), {}, (err, response) => {
+      //   this.lastTimeResponse = response.getCurrentTime();
+      // });
     }
   }
 }
