@@ -18,16 +18,19 @@ export default {
       //   client,
       // ]);
 
-      const getCurrentTimePromise = () => {
+      const getCurrentTimePromise = (dump) => {
         return new Promise((resolve, reject) => {
-          client.getCurrentTime(new GetCurrentTimeRequest(), {}, (err, response) => {
+          const getCurrentTimeRequest = new GetCurrentTimeRequest()
+          getCurrentTimeRequest.setDump(dump)
+          // console.log(getCurrentTimeRequest)
+          client.getCurrentTime(getCurrentTimeRequest, {}, (err, response) => {
             if (err) return reject(err)
             resolve(response)
           })
         })
       }
       try {
-        const response = await getCurrentTimePromise()
+        const response = await getCurrentTimePromise("ttt")
         this.lastTimeResponse = response.getCurrentTime();
       }catch (err) {
         console.error(err)

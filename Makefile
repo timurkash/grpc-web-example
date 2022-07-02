@@ -46,3 +46,11 @@ docker-compose-up:
 docker-compose-stop:
 	docker-compose stop
 	docker-compose rm -f
+
+#time-server
+
+dc-time-server:
+#	docker-compose rm -f time-server
+	docker-compose build time-server
+	docker-compose stop time-server
+	docker-compose up -d time-server

@@ -4,6 +4,7 @@ RUN apk --no-cache add build-base
 ADD . /src
 WORKDIR /src
 RUN go get ./...&& go build -o goapp
+#RUN go build -o goapp
 
 # final stage
 FROM alpine

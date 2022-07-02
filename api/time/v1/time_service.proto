@@ -5,6 +5,7 @@ package time.v1;
 option go_package = "github.com/timurkash/grpc-web-example/api/time/v1";
 
 message GetCurrentTimeRequest {
+  string dump = 1;
 }
 
 message GetCurrentTimeResponse {
