@@ -9,7 +9,7 @@ services:
     image: timurkash/grpc-web-example-envoy
     ports:
       - "8091:8080"
-    links:
+    depends_on:
       - time-server
     networks:
       - backend
