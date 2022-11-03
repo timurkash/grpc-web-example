@@ -22,3 +22,7 @@ and revised.
 Envoy adjusted to v1.21.1
 
 And some improves
+
+This is deprecated
+
+See [github.com/timurkash/auth](github.com/timurkash/auth)
